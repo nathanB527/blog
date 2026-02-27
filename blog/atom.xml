@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://blog.splatty.org/blog/blog</id>
+    <id>https://blog.splatty.org/blog</id>
     <title>Nathan's Blog Blog</title>
     <updated>2026-02-27T07:48:58.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://blog.splatty.org/blog/blog"/>
+    <link rel="alternate" href="https://blog.splatty.org/blog"/>
     <subtitle>Nathan's Blog Blog</subtitle>
-    <icon>https://blog.splatty.org/blog/img/favicon.ico</icon>
+    <icon>https://blog.splatty.org/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Installing Navidrome on my home lab]]></title>
-        <id>https://blog.splatty.org/blog/blog/navidrome</id>
-        <link href="https://blog.splatty.org/blog/blog/navidrome"/>
+        <id>https://blog.splatty.org/blog/navidrome</id>
+        <link href="https://blog.splatty.org/blog/navidrome"/>
         <updated>2026-02-27T07:48:58.000Z</updated>
         <summary type="html"><![CDATA[Not a final blog post, just something from my notes thats in markdown to test out docusaurus]]></summary>
         <content type="html"><![CDATA[<p>Not a final blog post, just something from my notes thats in markdown to test out docusaurus</p>
 <h1>Navidrome installation</h1>
 <p>Using debian linux</p>
 <p>Got it onto proxmox by going to “local (proxmox)”, selecting iso’s, and pasting in the download link. I then setup a vm with 64gb storage 2 gb ram and 2 cores.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="changing-the-ip-address">Changing the Ip address<a href="https://blog.splatty.org/blog/blog/navidrome#changing-the-ip-address" class="hash-link" aria-label="Direct link to Changing the Ip address" title="Direct link to Changing the Ip address" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="changing-the-ip-address">Changing the Ip address<a href="https://blog.splatty.org/blog/navidrome#changing-the-ip-address" class="hash-link" aria-label="Direct link to Changing the Ip address" title="Direct link to Changing the Ip address" translate="no">​</a></h2>
 <p>I needed to change the ip address so I</p>
 <ul>
 <li class="">nano /etc/network/interfaces</li>
@@ -35,7 +35,7 @@
 <li class="">nano /etc/netplan/00-installer-config.yaml</li>
 </ul>
 <p>Had to make a config</p>
-<p><img decoding="async" loading="lazy" src="https://blog.splatty.org/blog/assets/images/image-98548beaff6a7a2b9a134eb8cd560dcd.png" width="413" height="401" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" src="https://blog.splatty.org/assets/images/image-98548beaff6a7a2b9a134eb8cd560dcd.png" width="413" height="401" class="img_ev3q"></p>
 <p>After that came making the docker-compose.yml file.</p>
 <p><code>services:</code><br>
 <code>navidrome:</code><br>
@@ -75,14 +75,14 @@
 <li class="">docker-compose up -d</li>
 </ul>
 <p>Can check status with docker-compose ps</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qbittorrent">Qbittorrent<a href="https://blog.splatty.org/blog/blog/navidrome#qbittorrent" class="hash-link" aria-label="Direct link to Qbittorrent" title="Direct link to Qbittorrent" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qbittorrent">Qbittorrent<a href="https://blog.splatty.org/blog/navidrome#qbittorrent" class="hash-link" aria-label="Direct link to Qbittorrent" title="Direct link to Qbittorrent" translate="no">​</a></h2>
 <p>I also had to add qbittorrent to the docker compose.</p>
 <p>user: admin</p>
 <p>i added this to lidarrI</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="indexer">Indexer<a href="https://blog.splatty.org/blog/blog/navidrome#indexer" class="hash-link" aria-label="Direct link to Indexer" title="Direct link to Indexer" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="indexer">Indexer<a href="https://blog.splatty.org/blog/navidrome#indexer" class="hash-link" aria-label="Direct link to Indexer" title="Direct link to Indexer" translate="no">​</a></h2>
 <p>Now to actually index for torrents i needed to add an indexer</p>
 <p>Decided to use prowlarr, aggregates a lot of the services into one. once again, added to docker compose files.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="careful-considerations-and-not-wanting-to-get-a-notice-from-my-isp">Careful considerations, and not wanting to get a notice from my isp<a href="https://blog.splatty.org/blog/blog/navidrome#careful-considerations-and-not-wanting-to-get-a-notice-from-my-isp" class="hash-link" aria-label="Direct link to Careful considerations, and not wanting to get a notice from my isp" title="Direct link to Careful considerations, and not wanting to get a notice from my isp" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="careful-considerations-and-not-wanting-to-get-a-notice-from-my-isp">Careful considerations, and not wanting to get a notice from my isp<a href="https://blog.splatty.org/blog/navidrome#careful-considerations-and-not-wanting-to-get-a-notice-from-my-isp" class="hash-link" aria-label="Direct link to Careful considerations, and not wanting to get a notice from my isp" title="Direct link to Careful considerations, and not wanting to get a notice from my isp" translate="no">​</a></h3>
 <p>until i get a proper vpn, im not going to take the risk torrenting. Instead, im utilizing soulseek to download the files and using the scp (secure file copy) command on linux to transfer my files.</p>
 <p>scp -r complete/shy/* <a href="mailto:nathan@192.168.4.101" target="_blank" rel="noopener noreferrer" class="">nathan@192.168.4.101</a>:/mnt/music/</p>]]></content>
         <author>
