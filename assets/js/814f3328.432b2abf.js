@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_website=globalThis.webpackChunkmy_website||[]).push([[472],{5513(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Installing Navidrome on my home lab","permalink":"/blog/navidrome","unlisted":false,"date":"2026-02-27T07:48:58.000Z"}]}')}}]);

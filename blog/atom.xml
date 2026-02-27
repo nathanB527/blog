@@ -2,108 +2,93 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.splatty.org/blog</id>
     <title>Nathan's Blog Blog</title>
-    <updated>2021-08-26T00:00:00.000Z</updated>
+    <updated>2026-02-27T07:48:58.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.splatty.org/blog"/>
     <subtitle>Nathan's Blog Blog</subtitle>
     <icon>https://blog.splatty.org/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[Welcome]]></title>
-        <id>https://blog.splatty.org/blog/welcome</id>
-        <link href="https://blog.splatty.org/blog/welcome"/>
-        <updated>2021-08-26T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Docusaurus blogging features are powered by the blog plugin.]]></summary>
-        <content type="html"><![CDATA[<p><a href="https://docusaurus.io/docs/blog" target="_blank" rel="noopener noreferrer" class="">Docusaurus blogging features</a> are powered by the <a href="https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog" target="_blank" rel="noopener noreferrer" class="">blog plugin</a>.</p>
-<p>Here are a few tips you might find useful.</p>
-<p>Simply add Markdown files (or folders) to the <code>blog</code> directory.</p>
-<p>Regular blog authors can be added to <code>authors.yml</code>.</p>
-<p>The blog post date can be extracted from filenames, such as:</p>
+        <title type="html"><![CDATA[Installing Navidrome on my home lab]]></title>
+        <id>https://blog.splatty.org/blog/navidrome</id>
+        <link href="https://blog.splatty.org/blog/navidrome"/>
+        <updated>2026-02-27T07:48:58.000Z</updated>
+        <summary type="html"><![CDATA[Not a final blog post, just something from my notes thats in markdown to test out docusaurus]]></summary>
+        <content type="html"><![CDATA[<p>Not a final blog post, just something from my notes thats in markdown to test out docusaurus</p>
+<h1>Navidrome installation</h1>
+<p>Using debian linux</p>
+<p>Got it onto proxmox by going to “local (proxmox)”, selecting iso’s, and pasting in the download link. I then setup a vm with 64gb storage 2 gb ram and 2 cores.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="changing-the-ip-address">Changing the Ip address<a href="https://blog.splatty.org/blog/navidrome#changing-the-ip-address" class="hash-link" aria-label="Direct link to Changing the Ip address" title="Direct link to Changing the Ip address" translate="no">​</a></h2>
+<p>I needed to change the ip address so I</p>
 <ul>
-<li class=""><code>2019-05-30-welcome.md</code></li>
-<li class=""><code>2019-05-30-welcome/index.md</code></li>
+<li class="">nano /etc/network/interfaces</li>
 </ul>
-<p>A blog post folder can be convenient to co-locate blog post images:</p>
-<p><img decoding="async" loading="lazy" alt="Docusaurus Plushie" src="https://blog.splatty.org/assets/images/docusaurus-plushie-banner-a60f7593abca1e3eef26a9afa244e4fb.jpeg" width="1500" height="500" class="img_ev3q"></p>
-<p>The blog supports tags as well!</p>
-<p><strong>And if you don't want a blog</strong>: just delete this directory, and use <code>blog: false</code> in your Docusaurus config.</p>]]></content>
+<p>After changing what i thought would fix it, i broke dns resolution. I decided to switch to ubuntu after this because it seems like thats what most people use.</p>
+<h1>Ubuntu time….</h1>
+<p>Decided to try out <a href="https://ubuntu.com/download/server" target="_blank" rel="noopener noreferrer" class="">ubuntu server</a>, it seems appropriate for the task.</p>
+<p>After installing the ubuntu server, i installed docker with:</p>
+<p><code>sudo apt update</code><br>
+<code>sudo apt install docker.io docker-compose</code><br>
+<code>sudo systemctl enable docker</code><br>
+<code>sudo usermod -aG docker $USER</code></p>
+<p>Next up was setting a static ip so i could ssh into the vm. Ubuntu servers use netplan for networking.</p>
+<ul>
+<li class="">nano /etc/netplan/00-installer-config.yaml</li>
+</ul>
+<p>Had to make a config</p>
+<p><img decoding="async" loading="lazy" src="https://blog.splatty.org/assets/images/image-98548beaff6a7a2b9a134eb8cd560dcd.png" width="413" height="401" class="img_ev3q"></p>
+<p>After that came making the docker-compose.yml file.</p>
+<p><code>services:</code><br>
+<code>navidrome:</code><br>
+<code>image: deluan/navidrome:latest</code><br>
+<code>container_name: navidrome</code><br>
+<code>ports:</code><br>
+<code>- 4533:4533</code><br>
+<code>restart: unless-stopped</code><br>
+<code># Optional: put your config options customization here. Examples:</code><br>
+<code># ND_LOGLEVEL: debug</code><br>
+<code>volumes:</code><br>
+<code>- ./navidrome/data:/data</code><br>
+<code>- /mnt/music:/music</code><br>
+<code>networks:</code><br>
+<code>- media-network</code></p>
+<p><code>lidarr:</code><br>
+<code>image: lscr.io/linuxserver/lidarr:latest</code><br>
+<code>container_name: lidarr</code><br>
+<code>environment:</code><br>
+<code>- PUID=1000</code><br>
+<code>- PGID=1000</code><br>
+<code>- TZ=Etc/UTC</code><br>
+<code>volumes:</code><br>
+<code>- ./lidarr/config:/config</code><br>
+<code>- /mnt/music:/music</code><br>
+<code>- /mnt/downloads:/downloads</code><br>
+<code>ports:</code><br>
+<code>- 8686:8686</code><br>
+<code>restart: unless-stopped</code><br>
+<code>networks:</code><br>
+<code>- media-network</code></p>
+<p><code>networks:</code><br>
+<code>media-network:</code><br>
+<code>driver: bridge</code></p>
+<p>I found these configs using docker compose configs for respective services (lidarr and navidrome). After defining the config make sure to make the appropriate directories and then run</p>
+<ul>
+<li class="">docker-compose up -d</li>
+</ul>
+<p>Can check status with docker-compose ps</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qbittorrent">Qbittorrent<a href="https://blog.splatty.org/blog/navidrome#qbittorrent" class="hash-link" aria-label="Direct link to Qbittorrent" title="Direct link to Qbittorrent" translate="no">​</a></h2>
+<p>I also had to add qbittorrent to the docker compose.</p>
+<p>user: admin</p>
+<p>i added this to lidarrI</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="indexer">Indexer<a href="https://blog.splatty.org/blog/navidrome#indexer" class="hash-link" aria-label="Direct link to Indexer" title="Direct link to Indexer" translate="no">​</a></h2>
+<p>Now to actually index for torrents i needed to add an indexer</p>
+<p>Decided to use prowlarr, aggregates a lot of the services into one. once again, added to docker compose files.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="careful-considerations-and-not-wanting-to-get-a-notice-from-my-isp">Careful considerations, and not wanting to get a notice from my isp<a href="https://blog.splatty.org/blog/navidrome#careful-considerations-and-not-wanting-to-get-a-notice-from-my-isp" class="hash-link" aria-label="Direct link to Careful considerations, and not wanting to get a notice from my isp" title="Direct link to Careful considerations, and not wanting to get a notice from my isp" translate="no">​</a></h3>
+<p>until i get a proper vpn, im not going to take the risk torrenting. Instead, im utilizing soulseek to download the files and using the scp (secure file copy) command on linux to transfer my files.</p>
+<p>scp -r complete/shy/* <a href="mailto:nathan@192.168.4.101" target="_blank" rel="noopener noreferrer" class="">nathan@192.168.4.101</a>:/mnt/music/</p>]]></content>
         <author>
-            <name>Sébastien Lorber</name>
-            <uri>https://sebastienlorber.com</uri>
+            <name>Nathan Bledsoe</name>
+            <uri>https://www.linkedin.com/in/nathan-bledsoe-07b9b63b2/</uri>
         </author>
-        <author>
-            <name>Yangshun Tay</name>
-            <uri>https://linkedin.com/in/yangshun</uri>
-        </author>
-        <category label="Facebook" term="Facebook"/>
-        <category label="Hello" term="Hello"/>
-        <category label="Docusaurus" term="Docusaurus"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[MDX Blog Post]]></title>
-        <id>https://blog.splatty.org/blog/mdx-blog-post</id>
-        <link href="https://blog.splatty.org/blog/mdx-blog-post"/>
-        <updated>2021-08-01T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Blog posts support Docusaurus Markdown features, such as MDX.]]></summary>
-        <content type="html"><![CDATA[<p>Blog posts support <a href="https://docusaurus.io/docs/markdown-features" target="_blank" rel="noopener noreferrer" class="">Docusaurus Markdown features</a>, such as <a href="https://mdxjs.com/" target="_blank" rel="noopener noreferrer" class="">MDX</a>.</p>
-<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>Use the power of React to create interactive blog posts.</p></div></div>
-<!-- -->
-<p>For example, use JSX to create an interactive button:</p>
-<div class="language-js codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-js codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token operator" style="color:#393A34">&lt;</span><span class="token plain">button onClick</span><span class="token operator" style="color:#393A34">=</span><span class="token punctuation" style="color:#393A34">{</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token arrow operator" style="color:#393A34">=&gt;</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">alert</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">'button clicked!'</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">}</span><span class="token operator" style="color:#393A34">&gt;</span><span class="token maybe-class-name">Click</span><span class="token plain"> me</span><span class="token operator" style="color:#393A34">!</span><span class="token operator" style="color:#393A34">&lt;</span><span class="token operator" style="color:#393A34">/</span><span class="token plain">button</span><span class="token operator" style="color:#393A34">&gt;</span><br></span></code></pre></div></div>
-<button>Click me!</button>]]></content>
-        <author>
-            <name>Sébastien Lorber</name>
-            <uri>https://sebastienlorber.com</uri>
-        </author>
-        <category label="Docusaurus" term="Docusaurus"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Long Blog Post]]></title>
-        <id>https://blog.splatty.org/blog/long-blog-post</id>
-        <link href="https://blog.splatty.org/blog/long-blog-post"/>
-        <updated>2019-05-29T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[This is the summary of a very long blog post,]]></summary>
-        <content type="html"><![CDATA[<p>This is the summary of a very long blog post,</p>
-<p>Use a <code>&lt;!--</code> <code>truncate</code> <code>--&gt;</code> comment to limit blog post size in the list view.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content>
-        <author>
-            <name>Yangshun Tay</name>
-            <uri>https://linkedin.com/in/yangshun</uri>
-        </author>
-        <category label="Hello" term="Hello"/>
-        <category label="Docusaurus" term="Docusaurus"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[First Blog Post]]></title>
-        <id>https://blog.splatty.org/blog/first-blog-post</id>
-        <link href="https://blog.splatty.org/blog/first-blog-post"/>
-        <updated>2019-05-28T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Lorem ipsum dolor sit amet...]]></summary>
-        <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet...</p>
-<p>...consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content>
-        <author>
-            <name>Sébastien Lorber</name>
-            <uri>https://sebastienlorber.com</uri>
-        </author>
-        <author>
-            <name>Yangshun Tay</name>
-            <uri>https://linkedin.com/in/yangshun</uri>
-        </author>
-        <category label="Hola" term="Hola"/>
-        <category label="Docusaurus" term="Docusaurus"/>
+        <category label="Homelab" term="Homelab"/>
     </entry>
 </feed>
