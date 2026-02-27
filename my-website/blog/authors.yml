@@ -10,16 +10,13 @@ yangshun:
     github: yangshun
     newsletter: https://www.greatfrontend.com
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
+Nathan:
+  name: Nathan Bledsoe
+  title: Cybersecurity student
+  url: https://www.linkedin.com/in/nathan-bledsoe-07b9b63b2/
+  image_url: https://media.licdn.com/dms/image/v2/D5603AQEuPagkODHBEw/profile-displayphoto-scale_200_200/B56ZyIQHa7HYAY-/0/1771812452481?e=1773878400&v=beta&t=8VCW4OFHLzz8C4i-PceTKGKfaz8kxRTKD-MBx4nURy4
   page:
     # customize the url of the author page at /blog/authors/<permalink>
-    permalink: '/all-sebastien-lorber-articles'
+    permalink: "/all-my-articles"
   socials:
-    x: sebastienlorber
-    linkedin: sebastienlorber
-    github: slorber
-    newsletter: https://thisweekinreact.com
+    github: nathanb527

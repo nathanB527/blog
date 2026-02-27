@@ -28,7 +28,7 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'nathanB527', // Usually your GitHub org/user name.
   projectName: 'blog', // Usually your repo name.
-  deploymentBranch: 'deploy-branch',
+  deploymentBranch: 'main',
   onBrokenLinks: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
