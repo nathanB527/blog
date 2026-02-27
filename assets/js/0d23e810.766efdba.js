@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_website=globalThis.webpackChunkmy_website||[]).push([[174],{5862(e){e.exports=JSON.parse('{"tags":[{"label":"Homelab","permalink":"/blog/blog/tags/homelab","description":"Everything involving my homelab!","count":1}]}')}}]);
