@@ -39,7 +39,7 @@ Next up was setting a static ip so i could ssh into the vm. Ubuntu servers use n
 
 Had to make a config
 
-![](files/019bbe8d-7bc4-768f-8aec-7a8549984c2e/image.png)
+![](./image.png)
 
 After that came making the docker-compose.yml file.
 
