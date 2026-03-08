@@ -7,19 +7,7 @@ hide_table_of_contents: true
 import clsx from 'clsx';
 import { SiGithub } from '@icons-pack/react-simple-icons';
 
-<div style={{display: 'flex', justifyContent: 'center', margin: '1.5rem 0'}}>
-  <img
-    src="/img/myface.jpg"
-    alt="Nathan Bledsoe"
-    style={{
-      width: '180px',
-      height: '180px',
-      borderRadius: '50%',
-      objectFit: 'cover',
-      border: '2px solid var(--ifm-color-primary-lightest)'
-    }}
-  />
-</div>
+
 
 
 
@@ -27,7 +15,8 @@ import { SiGithub } from '@icons-pack/react-simple-icons';
 
 <div style={{display: 'flex', flexWrap: 'wrap', gap: '8px', margin: '1.5rem 0', justifyContent: 'center', textAlign: 'center'}}>
 
-# natan
+# Nathan Bledsoe
+Hello! Welcome to my website. This is a work in progress site where you'll soon find posts about what I've been up to. Stay tuned!
 
 
 </div>
