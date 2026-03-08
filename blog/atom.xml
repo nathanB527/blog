@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://nathancyber.com/blog/blog</id>
+    <id>https://nathancyber.com/blog</id>
     <title>Nathan's Blog Blog</title>
     <updated>2026-03-07T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://nathancyber.com/blog/blog"/>
+    <link rel="alternate" href="https://nathancyber.com/blog"/>
     <subtitle>Nathan's Blog Blog</subtitle>
-    <icon>https://nathancyber.com/blog/img/favicon.ico</icon>
+    <icon>https://nathancyber.com/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Installing Navidrome on my home lab]]></title>
-        <id>https://nathancyber.com/blog/blog/An overview of my homelab!</id>
-        <link href="https://nathancyber.com/blog/blog/An overview of my homelab!"/>
+        <id>https://nathancyber.com/blog/An overview of my homelab!</id>
+        <link href="https://nathancyber.com/blog/An overview of my homelab!"/>
         <updated>2026-03-07T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[* Cool]]></summary>
         <content type="html"><![CDATA[<ul>
