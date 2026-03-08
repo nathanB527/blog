@@ -1,0 +1,198 @@
+{
+  "main": {
+    "id": "c412e8ecaafa8f94",
+    "type": "split",
+    "children": [
+      {
+        "id": "501e471b0d5874e4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "86ebfd1e95c33a19",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "homelab/2026-2-00-Homelab.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-2-00-Homelab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "02ea79b9da78d987",
+    "type": "split",
+    "children": [
+      {
+        "id": "74f5c34c58f93fc2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1bdda6d0e76edb62",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "61ae9aeda9f8766b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "b9d3bf53ebee60fa",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "5c7c82e1d61671f2",
+    "type": "split",
+    "children": [
+      {
+        "id": "f7be1d39727c9a21",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ceefc128462ed635",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "homelab/2026-2-00-Homelab.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 2026-2-00-Homelab"
+            }
+          },
+          {
+            "id": "bfd3beeb0144d3a2",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "homelab/2026-2-00-Homelab.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 2026-2-00-Homelab"
+            }
+          },
+          {
+            "id": "bb585f28d1615c61",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "79e71b947c5457a5",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "b7fa5bb1b4f6df24",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "homelab/2026-2-00-Homelab.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 2026-2-00-Homelab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "86ebfd1e95c33a19",
+  "lastOpenFiles": [
+    "tags.yml~",
+    "homelab",
+    "homelab/2026-2-00-Homelab.md",
+    "Navidrome installation.md",
+    "navidrome/Navidrome installation.md",
+    "Navidrome installation (copy).md",
+    "navidrome/image.png",
+    "navidrome",
+    "untitled folder"
+  ]
+}
