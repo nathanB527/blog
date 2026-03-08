@@ -1,94 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://blog.splatty.org/blog</id>
+    <id>https://nathancyber.com/blog/blog</id>
     <title>Nathan's Blog Blog</title>
-    <updated>2026-02-27T07:48:58.000Z</updated>
+    <updated>2026-03-07T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://blog.splatty.org/blog"/>
+    <link rel="alternate" href="https://nathancyber.com/blog/blog"/>
     <subtitle>Nathan's Blog Blog</subtitle>
-    <icon>https://blog.splatty.org/img/favicon.ico</icon>
+    <icon>https://nathancyber.com/blog/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Installing Navidrome on my home lab]]></title>
-        <id>https://blog.splatty.org/blog/navidrome</id>
-        <link href="https://blog.splatty.org/blog/navidrome"/>
-        <updated>2026-02-27T07:48:58.000Z</updated>
-        <summary type="html"><![CDATA[Not a final blog post, just something from my notes thats in markdown to test out docusaurus]]></summary>
-        <content type="html"><![CDATA[<p>Not a final blog post, just something from my notes thats in markdown to test out docusaurus</p>
-<h1>Navidrome installation</h1>
-<p>Using debian linux</p>
-<p>Got it onto proxmox by going to “local (proxmox)”, selecting iso’s, and pasting in the download link. I then setup a vm with 64gb storage 2 gb ram and 2 cores.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="changing-the-ip-address">Changing the Ip address<a href="https://blog.splatty.org/blog/navidrome#changing-the-ip-address" class="hash-link" aria-label="Direct link to Changing the Ip address" title="Direct link to Changing the Ip address" translate="no">​</a></h2>
-<p>I needed to change the ip address so I</p>
-<ul>
-<li class="">nano /etc/network/interfaces</li>
+        <id>https://nathancyber.com/blog/blog/An overview of my homelab!</id>
+        <link href="https://nathancyber.com/blog/blog/An overview of my homelab!"/>
+        <updated>2026-03-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[* Cool]]></summary>
+        <content type="html"><![CDATA[<ul>
+<li class="">Cool</li>
+<li class="">markdown</li>
+<li class="">stuff</li>
 </ul>
-<p>After changing what i thought would fix it, i broke dns resolution. I decided to switch to ubuntu after this because it seems like thats what most people use.</p>
-<h1>Ubuntu time….</h1>
-<p>Decided to try out <a href="https://ubuntu.com/download/server" target="_blank" rel="noopener noreferrer" class="">ubuntu server</a>, it seems appropriate for the task.</p>
-<p>After installing the ubuntu server, i installed docker with:</p>
-<p><code>sudo apt update</code><br>
-<code>sudo apt install docker.io docker-compose</code><br>
-<code>sudo systemctl enable docker</code><br>
-<code>sudo usermod -aG docker $USER</code></p>
-<p>Next up was setting a static ip so i could ssh into the vm. Ubuntu servers use netplan for networking.</p>
-<ul>
-<li class="">nano /etc/netplan/00-installer-config.yaml</li>
-</ul>
-<p>Had to make a config</p>
-<p><img decoding="async" loading="lazy" src="https://blog.splatty.org/assets/images/image-98548beaff6a7a2b9a134eb8cd560dcd.png" width="413" height="401" class="img_ev3q"></p>
-<p>After that came making the docker-compose.yml file.</p>
-<p><code>services:</code><br>
-<code>navidrome:</code><br>
-<code>image: deluan/navidrome:latest</code><br>
-<code>container_name: navidrome</code><br>
-<code>ports:</code><br>
-<code>- 4533:4533</code><br>
-<code>restart: unless-stopped</code><br>
-<code># Optional: put your config options customization here. Examples:</code><br>
-<code># ND_LOGLEVEL: debug</code><br>
-<code>volumes:</code><br>
-<code>- ./navidrome/data:/data</code><br>
-<code>- /mnt/music:/music</code><br>
-<code>networks:</code><br>
-<code>- media-network</code></p>
-<p><code>lidarr:</code><br>
-<code>image: lscr.io/linuxserver/lidarr:latest</code><br>
-<code>container_name: lidarr</code><br>
-<code>environment:</code><br>
-<code>- PUID=1000</code><br>
-<code>- PGID=1000</code><br>
-<code>- TZ=Etc/UTC</code><br>
-<code>volumes:</code><br>
-<code>- ./lidarr/config:/config</code><br>
-<code>- /mnt/music:/music</code><br>
-<code>- /mnt/downloads:/downloads</code><br>
-<code>ports:</code><br>
-<code>- 8686:8686</code><br>
-<code>restart: unless-stopped</code><br>
-<code>networks:</code><br>
-<code>- media-network</code></p>
-<p><code>networks:</code><br>
-<code>media-network:</code><br>
-<code>driver: bridge</code></p>
-<p>I found these configs using docker compose configs for respective services (lidarr and navidrome). After defining the config make sure to make the appropriate directories and then run</p>
-<ul>
-<li class="">docker-compose up -d</li>
-</ul>
-<p>Can check status with docker-compose ps</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qbittorrent">Qbittorrent<a href="https://blog.splatty.org/blog/navidrome#qbittorrent" class="hash-link" aria-label="Direct link to Qbittorrent" title="Direct link to Qbittorrent" translate="no">​</a></h2>
-<p>I also had to add qbittorrent to the docker compose.</p>
-<p>user: admin</p>
-<p>i added this to lidarrI</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="indexer">Indexer<a href="https://blog.splatty.org/blog/navidrome#indexer" class="hash-link" aria-label="Direct link to Indexer" title="Direct link to Indexer" translate="no">​</a></h2>
-<p>Now to actually index for torrents i needed to add an indexer</p>
-<p>Decided to use prowlarr, aggregates a lot of the services into one. once again, added to docker compose files.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="careful-considerations-and-not-wanting-to-get-a-notice-from-my-isp">Careful considerations, and not wanting to get a notice from my isp<a href="https://blog.splatty.org/blog/navidrome#careful-considerations-and-not-wanting-to-get-a-notice-from-my-isp" class="hash-link" aria-label="Direct link to Careful considerations, and not wanting to get a notice from my isp" title="Direct link to Careful considerations, and not wanting to get a notice from my isp" translate="no">​</a></h3>
-<p>until i get a proper vpn, im not going to take the risk torrenting. Instead, im utilizing soulseek to download the files and using the scp (secure file copy) command on linux to transfer my files.</p>
-<p>scp -r complete/shy/* <a href="mailto:nathan@192.168.4.101" target="_blank" rel="noopener noreferrer" class="">nathan@192.168.4.101</a>:/mnt/music/</p>]]></content>
+<p><code> hooray!</code></p>]]></content>
         <author>
             <name>Nathan Bledsoe</name>
             <uri>https://www.linkedin.com/in/nathan-bledsoe-07b9b63b2/</uri>
         </author>
         <category label="Homelab" term="Homelab"/>
+        <category label="linux" term="linux"/>
+        <category label="networking" term="networking"/>
     </entry>
 </feed>
