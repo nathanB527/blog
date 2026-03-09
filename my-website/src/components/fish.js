@@ -13,7 +13,6 @@ export default function AsciiFish() {
       font-size: 18px;
       color: #00ffff;
       white-space: pre;
-      text-shadow: 0 0 8px rgba(120,210,255,0.8);
       `;
     document.body.appendChild(fishEl);
 
