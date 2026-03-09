@@ -16,7 +16,7 @@ export default function asciiFishSchool() {
         fishEl.style.cssText = `
           position: fixed;
           pointer-events: none;
-          z-index: 9998;
+          z-index: 1;
           font-family: monospace;
           font-size: 18px;
           color: #00ffff;
