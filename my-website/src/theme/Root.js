@@ -8,7 +8,6 @@ export default function Root({ children }) {
   return (
     <>
       {children}
-      <Fish />
       <Background />
       <FishSchool />
       <Jellyfish />

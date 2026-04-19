@@ -4,7 +4,7 @@ export default function asciiJelly() {
   useEffect(() => {
     const interval = setInterval(() => {
       if (document.hidden) return;
-      if (Math.random() < 0.2) {
+      if (Math.random() < 0.1) {
         const windowWidth = window.innerWidth;
         const windowHeight = window.innerHeight;
         let currentX = Math.random() * windowWidth;
@@ -15,7 +15,7 @@ export default function asciiJelly() {
         jellyEl.style.cssText = `
           position: fixed;
           pointer-events: none;
-          z-index: 1;
+          z-index: 0;
           font-family: monospace;
           font-size: 30px;
           color: #ff6eb4;

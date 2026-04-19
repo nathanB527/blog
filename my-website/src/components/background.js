@@ -2,14 +2,21 @@ import { useEffect } from "react";
 export default function AsciiBackground() {
   useEffect(() => {
     const asciiEl = document.createElement("div");
+    asciiEl.style.cssText = `
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      pointer-events: none;
+      z-index: 0;
+    `;
 
     const fill = () => {
       asciiEl.innerHTML = "";
       const cols = Math.floor(window.innerWidth / 20);
-
       for (let c = 0; c < cols; c++) {
-        if (Math.random() > 0.4) continue; // ~60% chance of seaweed per column
-
+        if (Math.random() > 0.4) continue;
         const height = Math.floor(Math.random() * 5) + 2;
         const stalk = document.createElement("div");
         stalk.style.cssText = `
@@ -22,7 +29,6 @@ export default function AsciiBackground() {
             line-height: 1.4;
             white-space: pre;
           `;
-
         let seg = "";
         for (let h = 0; h < height; h++) {
           seg += (h % 2 === 0 ? "(" : ")") + "\n";
@@ -34,7 +40,6 @@ export default function AsciiBackground() {
     fill();
     window.addEventListener("resize", fill);
     document.body.appendChild(asciiEl);
-
     return () => {
       window.removeEventListener("resize", fill);
       asciiEl.remove();
