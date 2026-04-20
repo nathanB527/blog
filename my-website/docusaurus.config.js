@@ -78,9 +78,11 @@ const config = {
     ({
       // Replace with your project's social card
       //image: "",
-      //colorMode: {
-      //respectPrefersColorScheme: true,
-      //},
+      colorMode: {
+        defaultMode: "dark",
+        disableSwitch: true,
+        respectPrefersColorScheme: false,
+      },
       navbar: {
         title: "Nathan Bledsoe",
         //logo: {
