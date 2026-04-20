@@ -13,7 +13,7 @@ tags:
 
 ### Challenge information
 CTF@CIT
-This challenge was in the reverse engineering category, and provided the binary "reallysecurepasswordmanager".  The challenge was made by by **ronnie**.
+This challenge was in the reverse engineering category, and provided the binary "reallysecurepasswordmanager".  The challenge was made by **ronnie**.
 
 ### First steps
 The first thing I did was run the binary. 
