@@ -58,19 +58,11 @@
 }
 
 /* Widen blog post column */
-.blog-wrapper {
-    max-width: none !important;
-}
-
-.blog-wrapper > .container {
-    max-width: 1400px !important;
-}
-
-.blog-wrapper .row > .col:not(.col--3):not(.col--4) {
+.col.col--7 {
+    --ifm-col-width: 75% !important;
+    max-width: 100% !important;
     flex: 0 0 75% !important;
-    max-width: 75% !important;
 }
-
 /* Scale down images in blog posts */
 article img {
     max-width: 80%;

@@ -18,17 +18,27 @@ hola:
   permalink: /hola
   description: Hola tag description
 
-Homelab:
+ctf:
+  label: CTF
+  permalink: /ctf
+  description: Capture the flag writeups
+
+reverse-engineering:
+  label: Reverse Engineering
+  permalink: /reverse-engineering
+  description: Reverse engineering posts
+
+homelab:
   label: Homelab
   permalink: /homelab
-  description: Everything involving my homelab!
+  description: Homelab posts
 
-Networking:
-  label: networking
-  permalink: /networking
-  description: Posts involving networking
-
-Linux:
-  label: linux
+linux:
+  label: Linux
   permalink: /linux
-  description: Posts involving linux
+  description: Linux posts
+
+networking:
+  label: Networking
+  permalink: /networking
+  description: Networking posts

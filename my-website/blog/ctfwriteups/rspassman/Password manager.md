@@ -1,8 +1,18 @@
-
+---
+slug: secure-password-manager
+title: Secure Password Manager Writeup
+date: 2026-04-19
+authors:
+  - Nathan
+tags:
+  - ctf
+  - reverse-engineering
+---
 
 # Secure Password Manager write up
 
 ### Challenge information
+CTF@CIT
 This challenge was in the reverse engineering category, and provided the binary "reallysecurepasswordmanager".  The challenge was made by by **ronnie**.
 
 ### First steps
