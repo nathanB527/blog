@@ -76,13 +76,18 @@ article img {
 }
 
 /* Blog post content card */
-[data-theme="dark"] article {
+/* Blog post content card */
+[data-theme="dark"].blog-wrapper article {
     background-color: rgb(45, 55, 72);
     padding: 2rem 2.5rem;
     border-radius: 12px;
     border: 1px solid rgba(100, 150, 200, 0.15);
     margin-bottom: 2rem;
-    position: relative; /* ← ADD THIS LINE */
+    position: relative;
+    z-index: 10;
+}
+[data-theme="dark"].mdx-wrapper article {
+    position: relative;
     z-index: 10;
 }
 
