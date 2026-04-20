@@ -87,10 +87,6 @@ article img {
 }
 
 /* Light mode version */
-[data-theme="light"] article {
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 2rem 2.5rem;
-    border-radius: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    margin-bottom: 2rem;
+.table-of-contents {
+    display: none !important;
 }
