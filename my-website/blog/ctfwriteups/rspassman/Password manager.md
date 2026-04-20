@@ -17,7 +17,6 @@ This challenge was in the reverse engineering category, and provided the binary 
 
 ### First steps
 The first thing I did was run the binary. 
-From this information, my first course of action was putting it into binary ninja to examine what its doing. 
 
 
 ![](./step1.png) 
