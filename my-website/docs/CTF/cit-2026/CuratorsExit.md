@@ -6,6 +6,9 @@ authors:
   - Nathan
 tags:
   - ctf
+  - osint
+  - linux
+  - bruteforce
 ---
 
 ## The Curator's Exit

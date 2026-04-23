@@ -47,3 +47,8 @@ osint:
   label: OSINT
   permalink: /osint
   description: Open-source intelligence
+
+bruteforce:
+  label: Brute force
+  permalink: /bruteforce
+  description: Posts that used brute forcing

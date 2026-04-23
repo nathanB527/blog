@@ -6,6 +6,7 @@ authors:
   - Nathan
 tags:
   - ctf
+  - osint
 ---
 
 
