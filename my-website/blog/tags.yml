@@ -42,3 +42,8 @@ networking:
   label: Networking
   permalink: /networking
   description: Networking posts
+
+osint:
+  label: OSINT
+  permalink: /osint
+  description: Open-source intelligence
