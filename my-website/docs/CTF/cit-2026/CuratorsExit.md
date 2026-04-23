@@ -13,6 +13,8 @@ tags:
 
 ## The Curator's Exit
 
+To participate in next years CTF, please visit https://ctf.cyber-cit.club/
+
 ![](/img/CuratorsExit/1.png)
 
 Downloading the pdf, we find that it is encrypted. I used johntheripper to crack the password

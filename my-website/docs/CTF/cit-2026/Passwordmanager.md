@@ -15,6 +15,9 @@ tags:
 CTF@CIT
 This challenge was in the reverse engineering category, and provided the binary "reallysecurepasswordmanager".  The challenge was made by **ronnie**.
 
+To participate in next years CTF, please visit https://ctf.cyber-cit.club/
+
+
 ### First steps
 The first thing I did was run the binary. 
 

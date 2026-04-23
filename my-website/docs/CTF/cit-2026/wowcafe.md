@@ -10,6 +10,7 @@ tags:
 ---
 
 
+To participate in next years CTF, please visit https://ctf.cyber-cit.club/
 
 
 ![](/img/wowcafe/1.png)

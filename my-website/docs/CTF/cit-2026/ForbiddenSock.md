@@ -10,9 +10,11 @@ tags:
 ---
 
 
+To participate in next years CTF, please visit https://ctf.cyber-cit.club/
 
 
 ![](/img/ForbiddenSock/challenge.png)
+
 
 Attached image:
 ![](/img/ForbiddenSock/1.jpg)
