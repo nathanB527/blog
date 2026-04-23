@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_website=globalThis.webpackChunkmy_website||[]).push([[121],{8070(e){e.exports=JSON.parse('{"tags":[{"label":"CTF","permalink":"/blog/tags/ctf","description":"Capture the flag writeups","count":1},{"label":"Reverse Engineering","permalink":"/blog/tags/reverse-engineering","description":"Reverse engineering posts","count":1}]}')}}]);

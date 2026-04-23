@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="rss.xsl"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Nathan's Blog Blog</title>
+        <link>https://nathancyber.com/blog</link>
+        <description>Nathan's Blog Blog</description>
+        <lastBuildDate>Sun, 19 Apr 2026 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[Secure Password Manager Writeup]]></title>
+            <link>https://nathancyber.com/blog/secure-password-manager</link>
+            <guid>https://nathancyber.com/blog/secure-password-manager</guid>
+            <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Challenge information]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="challenge-information">Challenge information<a href="https://nathancyber.com/blog/secure-password-manager#challenge-information" class="hash-link" aria-label="Direct link to Challenge information" title="Direct link to Challenge information" translate="no">​</a></h3>
+<p>CTF@CIT
+This challenge was in the reverse engineering category, and provided the binary "reallysecurepasswordmanager".  The challenge was made by <strong>ronnie</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="first-steps">First steps<a href="https://nathancyber.com/blog/secure-password-manager#first-steps" class="hash-link" aria-label="Direct link to First steps" title="Direct link to First steps" translate="no">​</a></h3>
+<p>The first thing I did was run the binary.</p>
+<p><img decoding="async" loading="lazy" src="https://nathancyber.com/assets/images/step1-950ff3abb83de07bdafbef44c046ffe6.png" width="902" height="917" class="img_ev3q"></p>
+<p>Okay, that's interesting. The only output I get is from option 3, saying "ERROR_NOT_AUTHENTICATED". After seeing the behavior of the binary, I decided to take a look on the inside.</p>
+<p>Using binary ninja, I decompiled the file. Once I had it I checked the main() function</p>
+<p><img decoding="async" loading="lazy" src="https://nathancyber.com/assets/images/step2-b268d7a35507c1da593f2e2fedabfbeb.png" width="1129" height="976" class="img_ev3q"></p>
+<p>From this I found the <code>"ERROR_NOT_AUTHENTICATED"</code> string from before. I noticed that the other functions were simply locked behind being authorized, with the third one functional without any authorization. Explains the behavior seen when I ran the file earlier!</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="gaining-authorization">Gaining authorization<a href="https://nathancyber.com/blog/secure-password-manager#gaining-authorization" class="hash-link" aria-label="Direct link to Gaining authorization" title="Direct link to Gaining authorization" translate="no">​</a></h3>
+<p>After checking out the main() function, my goal was pretty clear: figure out a way to get authenticated. I scrolled through the functions list looking for anything that could be a clue and stumbled upon the auth() function</p>
+<p><img decoding="async" loading="lazy" src="https://nathancyber.com/assets/images/step3-12f27b7bdb2c92ef2d328e97569e592b.png" width="780" height="537" class="img_ev3q"></p>
+<p>Alright, now we're getting somewhere! I quickly noticed a very out of place string, <code>"notronnie"</code>. Remembering that the author of this flag was ronnie, i knew i had found something.</p>
+<p>This function checks if the user running the file is named <code>"notronnie"</code>, and returns 0 if it its true. In the main function that, would give authentication!</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="logging-into-notronnie">Logging into notronnie<a href="https://nathancyber.com/blog/secure-password-manager#logging-into-notronnie" class="hash-link" aria-label="Direct link to Logging into notronnie" title="Direct link to Logging into notronnie" translate="no">​</a></h3>
+<p>I made the notronnie user and tried it with <code>su -l notronnie</code>, but no luck.</p>
+<p><img decoding="async" loading="lazy" src="https://nathancyber.com/assets/images/step5-b94d00c7033a61bd0afe4c4bffc1a8bf.png" width="858" height="793" class="img_ev3q"></p>
+<p>Before I went back to the drawing board, I wanted to try logging in with ssh to see if that would make a difference. (note that i renamed the binary to ./passman for convenience)</p>
+<p><img decoding="async" loading="lazy" src="https://nathancyber.com/assets/images/step6-05051d84478b27a052f82d405b12f647.png" width="754" height="893" class="img_ev3q"></p>
+<p>This worked! I saw that it printed <code>"Authenticated as: notronnie"</code>, so I immediately tried asking for the password to account name <code>flag</code>, and it worked!</p>
+<p>FLAG: <code>CIT{mT5zpH0lzIG3}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="conclusion">Conclusion<a href="https://nathancyber.com/blog/secure-password-manager#conclusion" class="hash-link" aria-label="Direct link to Conclusion" title="Direct link to Conclusion" translate="no">​</a></h3>
+<p>This was a fun challenge made that deepened my skills in reverse engineering, and allowed me to practice using binary ninja!</p>]]></content:encoded>
+            <category>CTF</category>
+            <category>Reverse Engineering</category>
+        </item>
+    </channel>
+</rss>

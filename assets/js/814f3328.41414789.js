@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_website=globalThis.webpackChunkmy_website||[]).push([[91],{5513(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Secure Password Manager Writeup","permalink":"/blog/secure-password-manager","unlisted":false,"date":"2026-04-19T00:00:00.000Z"}]}')}}]);
