@@ -90,6 +90,12 @@ const config = {
         //  src: "img/logo.svg",
         //},
         items: [
+          {
+            type: "docSidebar",
+            sidebarId: "tutorialSidebar",
+            position: "left",
+            label: "Writeups",
+          },
           { to: "/blog", label: "Blog", position: "left" },
           {
             href: "https://github.com/nathanB527",

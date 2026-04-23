@@ -15,7 +15,7 @@ import clsx from 'clsx';
   alignItems: 'center',
   gap: '1.5rem',
   padding: '1.5rem',
-  background: 'rgb(50, 55, 72',
+  background: 'rgb(50, 55, 72)',
   borderRadius: '12px',
   border: '1px solid rgba(100, 150, 200, 0.15)',
   margin: '2rem 0',
@@ -42,16 +42,23 @@ import clsx from 'clsx';
   </div>
 </div>
 
-Hello! Welcome to my website. This is a place where you'll find posts about what I've been up to. Check out my blog below.
+## Hi! I'm Nathan.
 
-<div style={{textAlign: 'center', margin: '2.5rem 0'}}>
-  
-    <a href="/blog"
+I am a dedicated cyber security student at UTSA. I love to compete in CTFs, work on my homelab, and program in my free time.
+I am actively seeking an internship in cyber security!
+
+On this site, you'll find CTF writeups, documentation for my home lab, and other general things that I've been up to.
+
+Let's connect on [LinkedIn](https://www.linkedin.com/in/nathan-bledsoe-cyber/)!
+
+<div style={{display: 'flex', gap: '1rem', justifyContent: 'center', margin: '2.5rem 0', flexWrap: 'wrap'}}>
+    <a
+    href="/blog"
     style={{
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '1.5rem 2rem 0.4rem 2rem',
+      padding: '1rem 2rem 0.7rem 2rem',
       background: 'var(--ifm-color-primary)',
       color: 'white',
       textDecoration: 'none',
@@ -63,6 +70,25 @@ Hello! Welcome to my website. This is a place where you'll find posts about what
     }}
   >
     Go to Blog →
+  </a>
+  <a
+    href="/docs"
+    style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '1rem 2rem 0.7rem 2rem',
+      background: 'var(--ifm-color-primary)',
+      color: 'white',
+      textDecoration: 'none',
+      borderRadius: '8px',
+      fontWeight: 600,
+      fontSize: '1.1rem',
+      lineHeight: 1,
+      transition: 'opacity 0.2s'
+    }}
+  >
+    Go to Writeups →
   </a>
 </div>
 
