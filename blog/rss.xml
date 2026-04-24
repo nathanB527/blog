@@ -17,6 +17,7 @@
             <content:encoded><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="challenge-information">Challenge information<a href="https://nathancyber.com/blog/secure-password-manager#challenge-information" class="hash-link" aria-label="Direct link to Challenge information" title="Direct link to Challenge information" translate="no">​</a></h3>
 <p>CTF@CIT
 This challenge was in the reverse engineering category, and provided the binary "reallysecurepasswordmanager".  The challenge was made by <strong>ronnie</strong>.</p>
+<p>To participate in next years CTF, please visit <a href="https://ctf.cyber-cit.club/" target="_blank" rel="noopener noreferrer" class="">https://ctf.cyber-cit.club/</a></p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="first-steps">First steps<a href="https://nathancyber.com/blog/secure-password-manager#first-steps" class="hash-link" aria-label="Direct link to First steps" title="Direct link to First steps" translate="no">​</a></h3>
 <p>The first thing I did was run the binary.</p>
 <p><img decoding="async" loading="lazy" src="https://nathancyber.com/assets/images/step1-950ff3abb83de07bdafbef44c046ffe6.png" width="902" height="917" class="img_ev3q"></p>
