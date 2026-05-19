@@ -13,41 +13,8 @@
             <link>https://nathancyber.com/blog/Homelab moment</link>
             <guid>https://nathancyber.com/blog/Homelab moment</guid>
             <pubDate>Mon, 04 May 2026 20:36:09 GMT</pubDate>
-            <description><![CDATA[Introduction]]></description>
-            <content:encoded><![CDATA[<p>Introduction</p>
-<ul>
-<li class="">
-<p>Purpose for project</p>
-</li>
-<li class="">
-<p>Learning goals</p>
-</li>
-<li class="">
-<p>Practical uses (selfhosting apps, configuring a vpn through proxmox to be safe on public networks</p>
-</li>
-<li class="">
-<p>Inspirations (Louis rossmans self hosted life video, valerie’s homelab, Glenn Howards home lab)</p>
-</li>
-<li class="">
-<p>Specifications: HP Laptop 15, 16gb ddr4, 250gb ssd, ryzen 5700u</p>
-</li>
-</ul>
-<p>Software choice/Proxmox</p>
-<ul>
-<li class="">
-<p>Explain specifications of what I wanted</p>
-</li>
-<li class="">
-<p>Support for containers, virtual machines, and a useable user interface</p>
-</li>
-<li class="">
-<p>Explain what a hypervisor is</p>
-</li>
-<li class="">
-<p>Tie into why proxmox is a good fit</p>
-</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="intro">Intro<a href="https://nathancyber.com/blog/Homelab%20moment#intro" class="hash-link" aria-label="Direct link to Intro" title="Direct link to Intro" translate="no">​</a></h2>
+            <description><![CDATA[Intro]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="intro">Intro<a href="https://nathancyber.com/blog/Homelab%20moment#intro" class="hash-link" aria-label="Direct link to Intro" title="Direct link to Intro" translate="no">​</a></h2>
 <p>Around December 2025, I was in the market for a new laptop. My current laptop was alright, my main issue was the relatively small SSD and outdated cpu. Still, it had 16gb of ddr4. Around that same time, I had began doing research into homelabs, and self hosting different services. When Christmas came around and I had a new laptop, instead of retiring the old laptop and letting it collect dust, I opted to re-purpose it into a homelab!</p>
 <p>When I began this project, I did not have a concrete plan. However, I did have a starting goal of setting up a minecraft server, and a self-hosted markdown editor. Since I wanted multiple services running, and planned to add more in the future, I wanted to install a type 1 bare-metal hypervisor on the laptop. The hypervisor I chose was Proxmox!</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="hardware">Hardware<a href="https://nathancyber.com/blog/Homelab%20moment#hardware" class="hash-link" aria-label="Direct link to Hardware" title="Direct link to Hardware" translate="no">​</a></h3>
@@ -56,10 +23,10 @@
 16gb DDR4
 256gb</p>
 <p>Although not typical hardware for this application, this was a way for me to dip my toes in the water.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-proxmox">Installing proxmox<a href="https://nathancyber.com/blog/Homelab%20moment#installing-proxmox" class="hash-link" aria-label="Direct link to Installing proxmox" title="Direct link to Installing proxmox" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-proxmox">Installing proxmox<a href="https://nathancyber.com/blog/Homelab%20moment#installing-proxmox" class="hash-link" aria-label="Direct link to Installing proxmox" title="Direct link to Installing proxmox" translate="no">​</a></h3>
 <p>To install proxmox on my laptop, I first downloaded the ISO from the official proxmox website, and flashed it onto a usb stick with Rufus.</p>
-<p>Before continuing, I went through everything on my laptop and backed up all important data to an external ssd. Once that was done, I plugged in the USB, booted into the BIOS, and selected to boot from the usb. The proxmox installation was graphical and straight forward. It allowed me to specifiy my gateway IP, and the static IP for proxmox. After installation was complete, I connected to the web interface by entering the static IP into my browser and specifying the correct port.
-![[Pasted image 20260504193637.png]]</p>]]></content:encoded>
+<p>Before continuing, I went through everything on my laptop and backed up all important data to an external ssd. Once that was done, I plugged in the USB, booted into the BIOS, and selected to boot from the usb. The proxmox installation was graphical and straight forward. It allowed me to specifiy my gateway IP, and the static IP for proxmox. After installation was complete, I connected to the web interface by entering the static IP into my browser and specifying the correct port.</p>
+<p>Work in progress! Will complete as soon as I have the time.</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Secure Password Manager Writeup]]></title>
