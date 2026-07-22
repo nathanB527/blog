@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "homelab/2026-2-00-Homelab.md",
+                "file": "My first homelab.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-2-00-Homelab"
+              "title": "My first homelab"
             }
           }
         ]
@@ -185,6 +185,8 @@
   },
   "active": "86ebfd1e95c33a19",
   "lastOpenFiles": [
+    "Homelab moment.md",
+    "Homelab_diagram.drawio.png",
     "tags.yml~",
     "homelab",
     "homelab/2026-2-00-Homelab.md",
