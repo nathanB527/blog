@@ -4,29 +4,41 @@
         <title>Nathan's Blog Blog</title>
         <link>https://nathancyber.com/blog</link>
         <description>Nathan's Blog Blog</description>
-        <lastBuildDate>Mon, 04 May 2026 20:36:09 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 19 Apr 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <item>
-            <title><![CDATA[Homelab moment]]></title>
-            <link>https://nathancyber.com/blog/Homelab moment</link>
-            <guid>https://nathancyber.com/blog/Homelab moment</guid>
-            <pubDate>Mon, 04 May 2026 20:36:09 GMT</pubDate>
+            <title><![CDATA[My first homelab]]></title>
+            <link>https://nathancyber.com/blog/first-homelab</link>
+            <guid>https://nathancyber.com/blog/first-homelab</guid>
+            <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
             <description><![CDATA[Intro]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="intro">Intro<a href="https://nathancyber.com/blog/Homelab%20moment#intro" class="hash-link" aria-label="Direct link to Intro" title="Direct link to Intro" translate="no">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="intro">Intro<a href="https://nathancyber.com/blog/first-homelab#intro" class="hash-link" aria-label="Direct link to Intro" title="Direct link to Intro" translate="no">​</a></h2>
 <p>Around December 2025, I was in the market for a new laptop. My current laptop was alright, my main issue was the relatively small SSD and outdated cpu. Still, it had 16gb of ddr4. Around that same time, I had began doing research into homelabs, and self hosting different services. When Christmas came around and I had a new laptop, instead of retiring the old laptop and letting it collect dust, I opted to re-purpose it into a homelab!</p>
-<p>When I began this project, I did not have a concrete plan. However, I did have a starting goal of setting up a minecraft server, and a self-hosted markdown editor. Since I wanted multiple services running, and planned to add more in the future, I wanted to install a type 1 bare-metal hypervisor on the laptop. The hypervisor I chose was Proxmox!</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="hardware">Hardware<a href="https://nathancyber.com/blog/Homelab%20moment#hardware" class="hash-link" aria-label="Direct link to Hardware" title="Direct link to Hardware" translate="no">​</a></h3>
+<p>When I began this project, I did not have a concrete plan. However, I did have a starting goal of setting up a minecraft server, and a self-hosted markdown editor. Since I wanted multiple services running, and planned to add more in the future, I wanted to install a type 1 bare-metal hypervisor on the laptop. The hypervisor I chose was Proxmox.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="hardware">Hardware<a href="https://nathancyber.com/blog/first-homelab#hardware" class="hash-link" aria-label="Direct link to Hardware" title="Direct link to Hardware" translate="no">​</a></h3>
 <p>The specifications for my laptop turned homelab are as follows:</p>
 <p>AMD Ryzen 7 5700U
 16gb DDR4
 256gb</p>
 <p>Although not typical hardware for this application, this was a way for me to dip my toes in the water.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-proxmox">Installing proxmox<a href="https://nathancyber.com/blog/Homelab%20moment#installing-proxmox" class="hash-link" aria-label="Direct link to Installing proxmox" title="Direct link to Installing proxmox" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-proxmox">Installing proxmox<a href="https://nathancyber.com/blog/first-homelab#installing-proxmox" class="hash-link" aria-label="Direct link to Installing proxmox" title="Direct link to Installing proxmox" translate="no">​</a></h3>
 <p>To install proxmox on my laptop, I first downloaded the ISO from the official proxmox website, and flashed it onto a usb stick with Rufus.</p>
 <p>Before continuing, I went through everything on my laptop and backed up all important data to an external ssd. Once that was done, I plugged in the USB, booted into the BIOS, and selected to boot from the usb. The proxmox installation was graphical and straight forward. It allowed me to specifiy my gateway IP, and the static IP for proxmox. After installation was complete, I connected to the web interface by entering the static IP into my browser and specifying the correct port.</p>
-<p>Work in progress! Will complete as soon as I have the time.</p>]]></content:encoded>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="remote-access-via-tailscale-tunnel">Remote Access via tailscale tunnel<a href="https://nathancyber.com/blog/first-homelab#remote-access-via-tailscale-tunnel" class="hash-link" aria-label="Direct link to Remote Access via tailscale tunnel" title="Direct link to Remote Access via tailscale tunnel" translate="no">​</a></h2>
+<p>An important aspect of any server is how you access it. I chose to not expose any ports to the open internet, as this would be a dangerous thing to do for a beginner. Instead, I went with tailscale. Tailscale allowed me to setup a tunnel to my server, allowing secure remote access.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="organization-and-network-design">Organization and network design<a href="https://nathancyber.com/blog/first-homelab#organization-and-network-design" class="hash-link" aria-label="Direct link to Organization and network design" title="Direct link to Organization and network design" translate="no">​</a></h3>
+<p>The next step in the process was planning out how everything would be organized. The services I wanted were as follows: A minecraft server, Docmost, nginx proxy manager, and navidrome.</p>
+<p>For the first 3, I used pve containers, and deployed them using scripts found on <a href="https://community-scripts.org/" target="_blank" rel="noopener noreferrer" class="">https://community-scripts.org</a>. The minecraft server, and docmost worked right out of the box, but nginx proxy manager required some configuring. The purpose of this service was to allow connection through dns, but only on my local network. For example, docs.splatty.org would resolve to docmost, and play.splatty.org would resolve to the minecraft server. I had to learn about dns records, how to assign my own ssl certificates, and do some configuring on the cloudflare portal. But after all that, it was functioning properly.</p>
+<p>Navidrome was a bit more involved. Instead of using a pre-made script, I wanted to manually install the service using docker. Although the pre-made scripts were convenient, I felt that I was missing out on a valuable opportunity by taking the 'easy way'.</p>
+<p>The network design phase was quite simple. I wanted to plan out how I would lay out future additions to the server. The design I used was quite simple, Proxmox was on 192.168.4.1, the minecraft server was on 192.168.4.101, nginx proxy manager was on 192.168.4.102, etc. This allowed addressable space to be available for an ample amount of future needs. Below is a diagram that shows how my network was setup.</p>
+<p><img decoding="async" loading="lazy" src="https://nathancyber.com/assets/images/homelab_diagram-847c8f32be44af634ccfc271e9cbfefd.png" width="1038" height="862" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="conclusion">Conclusion<a href="https://nathancyber.com/blog/first-homelab#conclusion" class="hash-link" aria-label="Direct link to Conclusion" title="Direct link to Conclusion" translate="no">​</a></h2>
+<p>This was an incredibly rewarding project that not only let me setup some cool self hosted services, but also taught me a lot about networking in the process. Through every roadblock and solution I encountered, I gained a little bit more knowledge. This is a project that I would recommend to anyone in IT. It teaches you fundamental information about networking that will broaden your understanding of how this technology works.</p>
+<p>As I am writing this, I currently have plans on upgrading and transferring these services to a proper server that I acquired at an estate sale. I am having some hardware issues with it at the moment, so it may be a long while until I get it operational.</p>]]></content:encoded>
+            <category>Networking</category>
+            <category>Linux</category>
         </item>
         <item>
             <title><![CDATA[Secure Password Manager Writeup]]></title>
